@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import{Http,Response, Headers,RequestOptions, RequestMethod} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { User, Traveller, Payment, Seats} from '../models';
+import { User} from '../models';
 import 'rxjs/add/operator/toPromise';
 import { map } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
@@ -36,24 +36,6 @@ create(user: User) {
   return this.http.post(this.rootUrl + '/api/Account', body,{headers : reqHeader});
 }
 
-addTrveller(traveller: Traveller) {
-  const body: Traveller = {
-    travellerId: traveller.travellerId,
-    title: traveller.title,
-    firstName: traveller.firstName,
-    surname: traveller.surname,
-    email: traveller.email,
-    dob: traveller.dob,
-    mobileNumber: traveller.mobileNumber
- 
-  }
-  var reqHeader = new HttpHeaders({'No-Auth':'True'});
-  return this.http.post(this.rootUrl + '/api/Travellers', body,{headers : reqHeader});
-}
-
-
-
-
 login(UserName, Password) {
   var data = "username=" + UserName + "&password=" + Password + "&grant_type=password";
   var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
@@ -66,30 +48,7 @@ login(UserName, Password) {
     return this.http.get(this.rootUrl+'api/claims',{headers : new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})});
  }
 
- addPayment(payment : Payment){
-  const body: Payment = {
-    payId: payment.payId,
-    accountType: payment.accountType,
-    cardNumber: payment.cardNumber,
-    accountholderName: payment.accountholderName,
-    expirryDate: payment.expirryDate,
-    cvv: payment.cvv
-  
-  }
-  var reqHeader = new HttpHeaders({'No-Auth':'True'});
-  return this.http.post(this.rootUrl + '/api/Payments', body,{headers : reqHeader});
-}
 
-addSeats(seats : Seats){
-  const body: Seats = {
-    seatId: seats.seatId,
-    seatNo: seats.seatNo
-  
-  
-  }
-  var reqHeader = new HttpHeaders({'No-Auth':'True'});
-  return this.http.post(this.rootUrl + '/api/Bookings', body,{headers : reqHeader});
-}
 
 
 }

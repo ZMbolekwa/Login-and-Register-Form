@@ -9,20 +9,13 @@ import { AlertComponent } from './directives';
 import { AuthGuard } from './auth';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ErrorInterceptor } from './helpers';
-import { AlertService,  UserService, FlightService, DashboardService, SeatsService } from './services';
+import { AlertService,  UserService} from './services';
 import { HomeComponent } from './home';
-import { FlightsComponent } from './flights';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import { ShowFlightComponent  } from './showflights';
-import { SeatsComponent  } from './seats';
-import { TravellerComponent  } from './traveller';
-import { PaymentComponent  } from './payment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard';
-import { BookingsComponent } from './bookings';
-import { AdminComponent } from './admin';
+
 
 @NgModule({
     imports: [
@@ -38,25 +31,15 @@ import { AdminComponent } from './admin';
         AppComponent,
         AlertComponent,
         HomeComponent,
-        FlightsComponent,
         LoginComponent,
         RegisterComponent,
-        ShowFlightComponent ,
-        SeatsComponent,
-        TravellerComponent,
-        PaymentComponent,
-        DashboardComponent,
-        BookingsComponent,
-        AdminComponent
+      
      
     ],
     providers: [
         AuthGuard,
         AlertService,
-        FlightService,
-        DashboardService,
         UserService,
-        SeatsService,
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         
