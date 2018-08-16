@@ -1,0 +1,248 @@
+
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light" >
+  <ul class="navbar-nav">
+          <!-- <li class="nav-item">
+          <a class="navbar-brand" href="#"> <img src="/assets/img/logo.png" style="width: 70px;"></a>
+          </li> -->
+          
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Flights</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Cars</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Hotels</a>
+    </li>
+    
+  </ul>
+
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+     
+            <a class="nav-link" href="/dashboard" >Dashboard</a>
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="Logout()">Sign out</a>
+        </li>
+       
+    </ul>
+</div>
+    
+</nav>
+
+<div class = "header">
+      <div class="col-xs-2 search">
+     
+<br><br><br>
+<!-- <h1>Search and Book Cheap Flights</h1>    -->
+
+<!-- <div class = "btn-trip">
+<table>
+<tr>
+      <td>
+              <button class = "btn btn-outline-info my-2 my-sm-0">One Way</button>
+              <button class = "btn btn-outline-info my-2 my-sm-0">Return</button>
+              <button class = "btn btn-outline-info my-2 my-sm-0">Multi City</button>
+              </td>
+</tr>
+</table>
+</div> -->
+<br><br>
+<div class = "search">
+<form #searchForm ="ngForm" (ngSubmit)="search()">  
+  
+<div class="row" style="width: 700px; margin-left: 150px; color: #000;">
+  <div class="col">
+      <p style="font-size:12px;">Choose Departure City</p>
+    <select class="form-control" id="deCity" name ="deCity">
+      <option>Choose Departure City</option>
+      <option *ngFor ="let flights of flightService.showCities">{{flights.dCity}}</option>
+    </select>
+          <!-- <input id="typeahead-focus" formControlName="dCity" type="text" style="display:inline"  placeholder="Enter Departure City" class="top" [(ngModel)]="dCity" [ngbTypeahead]="depart" (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)"  />
+          <input id="typeahead-focus" formControlName="aCity" type="text" style="display:inline"  placeholder="Enter Arrival City"  class="top" [(ngModel)]="aCity" [ngbTypeahead]="arrival" (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"  [ngClass]="{ 'is-invalid': submitted && f.aCity.errors }" /> -->
+         </div>
+
+         <div class="col">
+           <p style="font-size:12px;">Choose Arrival City</p>
+               <select class="form-control" id="arCity" name ="arCity" >
+                 <option value="">Choose Arrival City</option>  
+                 <option *ngFor ="let flights of flightService.showCities">{{flights.aCity}}</option>
+               </select>
+             </div> 
+            </div>
+<br><br>
+            <div class="row" style="width: 700px; margin-left: 150px; color: #000;" >
+              <div class="col">
+                  <p style="font-size:12px;">Choose Departure Date</p>
+                  <input type="date" class="form-control" style="height: 38px; width: 240px; margin-top: 0px;" placeholder="Departure Date"  id="dd1" name = "dd1"    >
+                  <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-th"></span>
+              </div>
+                      
+                     </div>
+
+                     <div class="col">
+                        <p style="font-size:12px;">Choose Return Date</p>
+                      <input type="date" class="form-control" style="height: 38px; width: 240px; margin-top: 0px;" id="ad1" name = "ad1"   >
+                      <div class="input-group-addon">
+                          <span class="glyphicon glyphicon-th"></span>
+                  </div>
+                  </div>
+                    <div class="col">
+                        <p style="font-size:12px;">Choose Preffered Cabin</p>
+                      <select class="form-control" id="cabins" name ="cabins">
+                        <option value="">Choose Preffered Cabin</option>  
+                        <option *ngFor ="let flights of flightService.showCities">{{flights.cabin}}</option>
+                      </select>
+                    </div> 
+                    </div>
+      
+    
+           <button  type="submit" class="btn btn-search">Search Flights</button> 
+           <!-- <a [routerLink]="['/showflights']" class="btn btn-search"></a> -->
+        
+
+
+
+</form>
+</div>
+  </div>
+
+  </div>
+ 
+
+ <br><br>
+
+ <!--Image grid-->
+ 
+ <h5 style="text-align: center; color: #222;">Discover our top destinations</h5><br><br>
+<div class="row">
+
+  <div class="container">
+    
+          <div class="content">
+            <a href="" target="_blank">
+              <div class="content-overlay"></div>
+              <img class="content-image" src="assets/img/Cape_Town.jpg">
+              <div class="content-details fadeIn-top">
+                <h3>Cape Town</h3>
+                <p>Explore Cape Town holidays and discover the best time and places to visit</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="container">
+        
+          <div class="content">
+            <a href="" target="_blank">
+              <div class="content-overlay"></div>
+              <img class="content-image" src="assets/img/knysna.jpg">
+              <div class="content-details fadeIn-left">
+                <h3>Knysna</h3>
+                <p> Knysna is one of the Garden Route's best known travel destinations and is an excellent stop-over whilst touring the area.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="container">
+          <div class="content">
+            <a href="" target="_blank">
+              <div class="content-overlay"></div>
+              <img class="content-image" src="assets/img/Johannesburg.jpg">
+              <div class="content-details fadeIn-right">
+                <h3>Johannesburg</h3>
+                <p>The City of Johannesburg Metropolitan Municipality is located in the Gauteng Province</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="container">
+            <div class="content">
+              <a href="" target="_blank">
+                <div class="content-overlay"></div>
+                <img class="content-image" src="assets/img/Port-Elizabeth-01.jpg">
+                <div class="content-details fadeIn-right">
+                  <h3>Port Elizabeth</h3>
+                  <p>Port Elizabeth Attractions and Places of Special Interest in the Port Elizabeth of the Eastern Cape in South Africa</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="container">
+              <div class="content">
+                <a href="" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="assets/img/620x349.jpg">
+                  <div class="content-details fadeIn-right">
+                    <h3>Durban</h3>
+                    <p>Explore Durban holidays and discover the best time and places to visit.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="container">
+                <div class="content">
+                  <a href="" target="_blank">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="assets/img/ballito-coastline.jpg">
+                    <div class="content-details fadeIn-right">
+                      <h3>Ballito</h3>
+                      <p>n the heart of the Dolphin Coast, Ballito lies nestled between the fields of KwaZulu Natals famous Green Gold and is flanked to the east by golden beaches</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+      </div>
+      <!-- Footer -->
+
+      <div class = "top-footer">
+        
+          <div class="row" style="margin-left: 120px;">
+              <div class="col-sm">
+                <h6>PLAN YOUR TRIP</h6>
+                <br>
+                <p>Product and Services</p>
+                <p>Travellers Guide</p>
+                <p>Destinations</p>
+                <p>Holiday Packages</p>
+                 <p>Blog</p>
+              </div>
+              <div class="col-sm">
+                  <h6>PARTNERS</h6>
+                  <br>
+                  <p>Become an Affiliate</p>
+                  <p>Business Travel</p>
+              </div>
+              <div class="col-sm">
+                  <h6>NEED HELP?</h6>
+                  <br>
+                  <p>Contact Us</p>
+                  <p>FAQ</p>
+              </div>
+            </div>
+          
+      
+      </div>
+      
+      <footer>
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3" style="font-size:11pt;">Copyright © 1999-2018 Travelstart Online Travel Operations Pty LTD.
+            </div>
+            <!-- Copyright -->
+      </footer>
+
+<!-- Footer -->
+     
+        
+   
+        
+     

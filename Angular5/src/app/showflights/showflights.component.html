@@ -1,0 +1,177 @@
+
+
+        <!-- Page Content -->
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                <ul class="navbar-nav">
+                        <!-- <li class="nav-item">
+                        <a class="navbar-brand" href="#"> <img src="/assets/img/logo.png" style="width: 70px;"></a>
+                        </li> -->
+                        
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Flights</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Cars</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Hotels</a>
+                  </li>
+                  
+                </ul>
+              
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="/login">Sign in</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/register" >Sign up</a>
+                          
+                      </li>
+                  </ul>
+              </div>
+                  
+              </nav>
+              <body>
+   <br><br><br>
+   <form #userForm = "ngForm" (ngSubmit) = "continue()">
+   <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+       
+        <!-- <table class="table table-hover">
+           
+              <tr>
+                  <th scope="col"></th>
+                <th scope="col">Departure</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Departure Time</th>
+                <th scope="col">Destination Time</th>
+                <th scope="col">Cabin Class</th>
+              </tr>
+            
+            <tbody>
+                     <tr *ngFor ="let flights of flightService.showFlight">
+                         <td><img src="assets\img\{{flights.airline}}.png" style="width: 40px;  height: 40px;
+                        
+                          border: solid 1px #f8f9fa;
+                          border-radius: 50%;
+                          display: inline-block;"></td>
+                         <td>{{flights.dCity}}</td>
+                        <td> {{flights.aCity}}</td>
+                        <td>{{flights.dTime}}</td>
+                        <td>{{flights.aTime}}</td>
+                        <td> {{flights.cabin}}</td> -->
+                                    <!-- <td> <tr ><button>Select Flight</button></tr> </td> -->
+                        <!-- <td>  <input type="radio"  (click)="show(flights)"> </td>
+                    </tr>
+            </tbody>
+          </table> -->
+    
+          <table class="table table-filter" *ngFor ="let flights of flightService.showFlight">
+              <tbody>
+                <tr data-status="pagado">
+                  <td>
+                    <div class="ckbox">
+                      <input type="checkbox" id="checkbox1" (click)="show(flights)"  >
+                      <label for="checkbox1"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="javascript:;" class="star">
+                      <i class="glyphicon glyphicon-star"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="media">
+                   
+                        <img src="assets\img\{{flights.airline}}.png" class="media-photo" >
+                     
+                      <div class="media-body">
+                          <h3 class="title" style="color: #5cb85c; float: right;">R{{flights.price}}</h3>
+                        <h4 class="title">
+                          {{flights.dCity}}   <span class="pull-right pagado">({{flights.dTime}})</span> - {{flights.aCity}} <span class="pull-right pagado">({{flights.aTime}})</span>
+                        
+                        </h4>
+                        <p class="summary">{{flights.dAirport}} - {{flights.aAirport}}</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+      
+      </div>
+    </div>
+   
+    <div class="rightcolumn">
+      <div class="card">
+       booking summary goes here..
+        <br>
+        <!-- <h4 style="text-align: center;">Flight Details</h4><br><hr><br>
+        <p style="text-align: center;">Total Price</p><br>
+        <p class="title" style="color: #5cb85c; text-align: center;">R{{price}}</p> -->
+        <!-- <h6 style="text-align: center; color: #15c4a1;">R</h6><br>
+        <p style="text-align: center;">for Traveller</p> -->
+      <br>
+
+      <button type="submit" class="btn btn-primary">Continue</button>
+     
+   
+    </div>
+   
+
+      </div>
+
+    
+  
+  </div> 
+  
+ 
+        <!-- /#page-content-wrapper -->
+  <!-- Footer -->
+  </form>
+</body>
+  <div class = "top-footer">
+              
+        <div class="row" style="margin-left: 120px;">
+            <div class="col-sm">
+              <h6>PLAN YOUR TRIP</h6>
+              <br>
+              <p>Product and Services</p>
+              <p>Travellers Guide</p>
+              <p>Destinations</p>
+              <p>Holiday Packages</p>
+               <p>Blog</p>
+            </div>
+            <div class="col-sm">
+                <h6>PARTNERS</h6>
+                <br>
+                <p>Become an Affiliate</p>
+                <p>Business Travel</p>
+            </div>
+            <div class="col-sm">
+                <h6>NEED HELP?</h6>
+                <br>
+                <p>Contact Us</p>
+                <p>FAQ</p>
+            </div>
+          </div>
+        
+    
+    </div>
+    
+    <footer>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="font-size:11pt;">Copyright © 1999-2018 Travelstart Online Travel Operations Pty LTD.
+          </div>
+          <!-- Copyright -->
+    </footer>
+
+<!-- Footer -->
+  
+
+    <!-- /#wrapper -->
+     <!-- Menu Toggle Script -->
+   
