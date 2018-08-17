@@ -12,5 +12,5 @@
 
 2. Launch development server:
  ```bash
- npm start
+ npm start/ ng serve
  ```
